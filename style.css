@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+  background-color: #cecece;
+}
+
+h2 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.blocks {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.block_item {
+  background-color: #c90000;
+  color: #fff;
+  padding: 30px;
+  border: 3px solid #fff;
+  text-align: center;
+}
+/* Перший приклад */
+.example_one li {
+  float: left;
+  min-width: calc((100% - 50px) / 6);
+  margin-right: 10px;
+}
+.example_one li:nth-last-child(1) {
+  margin-right: 0;
+}
+.example_one:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+/* Другий приклад  */
+.example_two {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.example_two li {
+  flex: 1 1 16%;
+}
+/* Третій приклад  */
+.example_three {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+}
+/* Медіазапити */
+@media screen and (max-width: 992px) {
+  /* Перший приклад */
+  .example_one li {
+    min-width: calc((100% - 20px) / 3);
+    margin-top: 10px;
+  }
+  .example_one li:nth-child(1),
+  .example_one li:nth-child(2),
+  .example_one li:nth-child(3) {
+    margin-top: 0px;
+  }
+  .example_one li:nth-last-child(1),
+  .example_one li:nth-last-child(4) {
+    margin-right: 0;
+  }
+  /* Другий приклад  */
+  .example_two {
+    flex-wrap: wrap;
+  }
+  .example_two li {
+    flex: 1 1 30%;
+  }
+  /* Третій приклад  */
+  .example_three {
+    grid-template-columns: repeat(3, 2fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  /* Перший приклад */
+
+  .example_one li {
+    min-width: calc((100% - 10px) / 2);
+  }
+  .example_one li {
+    margin: 0;
+  }
+  .example_one li:nth-child(even) {
+    margin-left: 10px;
+  }
+  .example_one li:not(:nth-child(1)),
+  .example_one li:not(:nth-child(2)) {
+    margin-top: 10px;
+  }
+
+  /* Другий приклад  */
+  .example_two li {
+    flex: 1 1 40%;
+  }
+  /* Третій приклад  */
+  .example_three {
+    grid-template-columns: repeat(2, 3fr);
+  }
+}
+@media screen and (max-width: 540px) {
+  /* Перший приклад */
+
+  .example_one li {
+    min-width: 100%;
+  }
+  .example_one li:nth-child(even) {
+    margin-left: 0px;
+  }
+  .example_one li:nth-child(1) {
+    margin-top: 0px;
+  }
+  /* Другий приклад  */
+  .example_two li {
+    flex: 1 1 100%;
+  }
+  /* Третій приклад  */
+  .example_three {
+    grid-template-columns: 1fr;
+  }
+}
